@@ -22,8 +22,18 @@ public abstract class BasicCard {
 
     public abstract void ispisiKarticu(int id, String pan);
 
+    public BasicCard() {
     
+    
+    
+    }
 
+    public BasicCard(int id, String pan) {
+        this.id = id;
+        this.pan = pan;
+    }
+
+    
     
 
 
