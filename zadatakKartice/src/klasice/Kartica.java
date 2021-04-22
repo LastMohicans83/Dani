@@ -1,9 +1,8 @@
 package klasice;
-public class Kartica extends BasicCard{
+public class Kartica extends BasicCard implements interfejsi.IPoeni{
 
     private double sipanoLitara;
-    private int tipKartice1;
-    private int tipKartice2;
+    private int tipKartice;
 
     public double getSipanoLitara() {
         return sipanoLitara;
@@ -13,20 +12,12 @@ public class Kartica extends BasicCard{
         this.sipanoLitara = sipanoLitara;
     }
 
-    public int getTipKartice1() {
-        return tipKartice1;
+    public int getTipKartice() {
+        return tipKartice;
     }
 
-    public void setTipKartice1(int tipKartice1) {
-        this.tipKartice1 = tipKartice1;
-    }
-
-    public int getTipKartice2() {
-        return tipKartice2;
-    }
-
-    public void setTipKartice2(int tipKartice2) {
-        this.tipKartice2 = tipKartice2;
+    public void setTipKartice(int tipKartice) {
+        this.tipKartice = tipKartice;
     }
 
     public int getId() {
@@ -45,16 +36,18 @@ public class Kartica extends BasicCard{
         this.pan = pan;
     }
 
+   
+
     public Kartica() {
     
     
     }
     
-    public Kartica(double sipanoLitara, int tipKartice1, int tipKartice2) {
+    public Kartica(double sipanoLitara, int tipKartice) {
         super();
         this.sipanoLitara = sipanoLitara;
-        this.tipKartice1 = tipKartice1;
-        this.tipKartice2 = tipKartice2;
+        this.tipKartice = tipKartice;
+       
     }
     
      @Override
@@ -63,10 +56,16 @@ public class Kartica extends BasicCard{
         System.out.println("Pan kartice je: " + pan);
     }
 
-
-
-
-
-
-
+    @Override
+    public double izracunajBrojPoena(Kartica kartica) {
+        double normalKarticaPoeni = 2;
+        double goldKarticaPoeni = 3;
+        if (kartica.getTipKartice() == 1) {
+            return sipanoLitara * normalKarticaPoeni ;
+        } else if(kartica.getTipKartice() == 2) {
+            return sipanoLitara * goldKarticaPoeni;
+        }
+        return 0;
+    }
 }
+
