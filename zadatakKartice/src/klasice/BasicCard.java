@@ -22,6 +22,9 @@ public abstract class BasicCard {
 
     public abstract void ispisiKarticu(int id, String pan);
 
+    
+
+    
 
 
 
